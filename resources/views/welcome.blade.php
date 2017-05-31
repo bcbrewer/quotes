@@ -4,6 +4,11 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" id="csrf-token" content="{{ csrf_token() }}" />
+
+        <script>
+            window.Laravel = { csrfToken: '{{ csrf_token() }}' };
+        </script>
 
         <title>Laravel</title>
 
@@ -79,7 +84,12 @@
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    Quotes
+                </div>
+
+                <div id="vue-app">
+                    <example></example>
+                    <draggable-example></draggable-example>
                 </div>
 
                 <div class="links">
@@ -91,5 +101,7 @@
                 </div>
             </div>
         </div>
+
+        <script src="{{ mix("new/js/vue.js") }}"></script>
     </body>
 </html>
