@@ -5,6 +5,8 @@
 
     <body>
 
+        @include('includes.navigation')
+
         @yield('content')
 
         @include('includes.javascript')
