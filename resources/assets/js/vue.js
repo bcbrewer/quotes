@@ -7,13 +7,13 @@ window.axios.defaults.headers.common = {
     'X-Requested-With': 'XMLHttpRequest'
 }
 
-import Example from './components/Example.vue'
+import Box from './components/box.vue'
 
 new Vue({
 
     el: '#vue-app',
 
     components: {
-        Example
+        Box
     }
 })
