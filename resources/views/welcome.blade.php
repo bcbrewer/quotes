@@ -21,7 +21,6 @@
     <div class="tile" id="vue-app">
         <div class="column">
             <example></example>
-            <draggable-example></draggable-example>
         </div>
     </div>
 
