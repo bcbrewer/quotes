@@ -1,2 +1,18 @@
 language: php
-  - '7.2'
+
+php:
+  - 7.2
+
+services:
+  - mysql
+
+before_script:
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE quotes_testing;'
+  - composer self-update
+  - composer install --no-interaction
+  - php artisan key:generate
+  - php artisan migrate --no-interaction -vvv
+
+script:
+  - vendor/bin/phpunit

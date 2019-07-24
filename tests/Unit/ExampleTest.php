@@ -2,25 +2,28 @@
 
 namespace Tests\Unit;
 
+use App\Quote;
 use Tests\TestCase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
 class ExampleTest extends TestCase
 {
-    /**
-     * A basic test example.
-     *
-     * @return void
-     */
-    public function testBasicTest()
+    use DatabaseTransactions;
+
+    protected $connectionsToTransact;
+
+    public function setUp()
     {
-        $this->assertTrue(true);
+        $this->connectionsToTransact = ['mysql_testing'];
+
+        parent::setUp();
     }
 
     /** @test */
-    public function it_does_stuff()
+    public function it_gets_a_quote()
     {
-        $this->assertTrue(true);
+        factory(Quote::class)->create();
+
+        $this->assertEquals(1, Quote::count());
     }
 }
