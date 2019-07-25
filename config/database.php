@@ -54,19 +54,19 @@ return [
             'engine'      => null,
         ],
 
-        'mysql_testing' => [
-            'driver'    => 'mysql',
-            'host'      => env('DB_HOST', 'localhost'),
-            'port'      => env('DB_PORT', '3306'),
-            'database'  => env('DB_TEST_DATABASE', 'forge'),
-            'username'  => env('DB_USERNAME', 'forge'),
-            'password'  => env('DB_PASSWORD', ''),
-            'charset'   => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix'    => '',
-            'strict'    => false,
-            'engine'    => null,
-        ],
+//        'mysql_testing' => [
+//            'driver'    => 'mysql',
+//            'host'      => env('DB_HOST', 'localhost'),
+//            'port'      => env('DB_PORT', '3306'),
+//            'database'  => env('DB_TEST_DATABASE', 'forge'),
+//            'username'  => env('DB_USERNAME', 'forge'),
+//            'password'  => env('DB_PASSWORD', ''),
+//            'charset'   => 'utf8mb4',
+//            'collation' => 'utf8mb4_unicode_ci',
+//            'prefix'    => '',
+//            'strict'    => false,
+//            'engine'    => null,
+//        ],
 
         'pgsql' => [
             'driver'   => 'pgsql',
