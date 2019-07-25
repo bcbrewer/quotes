@@ -3,5 +3,5 @@
 </p>
 
 <p align="center">
-<a href="https://app.chipperci.com/projects/57c4937c-f096-4bba-b65a-80bb840d23ea/status/master"><img src="https://app.chipperci.com/projects/57c4937c-f096-4bba-b65a-80bb840d23ea/status/master" alt="Build Status"></a>
+<a href="https://app.chipperci.com/projects/57c4937c-f096-4bba-b65a-80bb840d23ea"><img src="https://app.chipperci.com/projects/57c4937c-f096-4bba-b65a-80bb840d23ea/status/master" alt="Build Status"></a>
 </p>

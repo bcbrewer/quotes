@@ -17,4 +17,4 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
