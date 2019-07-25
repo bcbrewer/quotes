@@ -1,3 +1,4 @@
+sudo: required
 dist: bionic
 
 language: php
@@ -20,7 +21,8 @@ install:
 
 before_script:
   - yarn
-  - yarn dev
+#  - yarn dev
+  - -npm run dev
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - php artisan serve &
 
