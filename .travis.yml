@@ -5,18 +5,27 @@ language: php
 php:
   - 7.2
 
+addons:
+  chrome: stable
+
 services:
   - mysql
 
-before_script:
+install:
   - cp .env.travis .env
   - sudo mysql -e 'CREATE DATABASE quotes_testing;'
-  - composer self-update
   - composer install --no-interaction
+
+before_script:
+#  - composer self-update
   - php artisan key:generate
   - php artisan migrate --no-interaction -vvv
   - yarn
   - yarn dev
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
+
 
 script:
   - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
+  - php artisan dusk
