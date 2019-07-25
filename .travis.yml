@@ -16,6 +16,7 @@ before_script:
   - php artisan key:generate
   - php artisan migrate --no-interaction -vvv
   - yarn
+  - yarn dev
 
 script:
   - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
