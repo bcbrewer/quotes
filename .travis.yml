@@ -15,12 +15,12 @@ before_script:
   - composer install --no-interaction
   - php artisan key:generate
   - php artisan migrate --no-interaction -vvv
-  - if [[ -f "yarn.lock" ]]; then
-      yarn
-      yarn dev
+  - if [ -f "yarn.lock" ]; then
+    yarn
+    yarn dev
     else
-      npm install --prefer-offline --no-audit
-      npm run dev
+    npm install --prefer-offline --no-audit
+    npm run dev
     fi
 
 script:
