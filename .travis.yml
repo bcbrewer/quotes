@@ -14,12 +14,11 @@ services:
 install:
   - cp .env.travis .env
   - sudo mysql -e 'CREATE DATABASE quotes_testing;'
-  - composer install --no-interaction
-
-before_script:
-#  - composer self-update
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
   - php artisan key:generate
   - php artisan migrate --no-interaction -vvv
+
+before_script:
   - yarn
   - yarn dev
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
@@ -27,5 +26,5 @@ before_script:
 
 
 script:
-  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
+#  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
   - php artisan dusk
