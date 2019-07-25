@@ -1,4 +1,3 @@
-sudo: required
 dist: bionic
 
 language: php
@@ -6,8 +5,8 @@ language: php
 php:
   - 7.2
 
-addons:
-  chrome: stable
+#addons:
+#  chrome: stable
 
 services:
   - mysql
@@ -21,12 +20,11 @@ install:
 
 before_script:
   - yarn
-#  - yarn dev
-  - -npm run dev
-  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-  - php artisan serve &
+  - yarn dev
+#  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+#  - php artisan serve &
 
 
 script:
-#  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
-  - php artisan dusk
+  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
+#  - php artisan dusk
