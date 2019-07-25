@@ -14,7 +14,8 @@ class ExampleTest extends TestCase
 
     public function setUp()
     {
-        $this->connectionsToTransact = ['mysql_testing'];
+//        $this->connectionsToTransact = ['mysql_testing'];
+        $this->connectionsToTransact = ['mysql'];
 
         parent::setUp();
     }
