@@ -26,7 +26,6 @@ before_script:
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - php artisan serve &
 
-
 script:
 #  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
   - php artisan dusk
