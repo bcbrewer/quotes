@@ -1,35 +1,35 @@
 dist: bionic
 
+language: php
+
+php:
+  - 7.2
+
 addons:
   chrome: stable
 
 services:
   - mysql
 
-matrix:
-  include:
-    - language: php
-      php:
-        - 7.2
+cache:
+  directories:
+    - vendor
+    - node_modules
 
-      install:
-        - cp .env.travis .env
-        - sudo mysql -e 'CREATE DATABASE quotes_testing;'
-        - travis_retry composer install --no-interaction --prefer-dist --no-suggest
-        - php artisan key:generate
-        - php artisan migrate --no-interaction -vvv
-        - yarn
-        - npm run production
+install:
+  - cp .env.travis .env
+  - travis_retry composer install --no-interaction --prefer-dist --no-suggest
+  - yarn
+  - npm run production
 
-      before_script:
-        - phpenv config-rm xdebug.ini
-        - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
-        - php artisan serve &
+before_script:
+  - php artisan key:generate
+  - sudo mysql -e 'CREATE DATABASE quotes_testing;'
+  - php artisan migrate --no-interaction -vvv
+  - phpenv config-rm xdebug.ini
+  - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
+  - php artisan serve &
 
-      script:
-        - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
-        - php artisan dusk
-    - language: node_js
-      node_js:
-        - 6.9
-      cache: yarn
+script:
+  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
+  - php artisan dusk
