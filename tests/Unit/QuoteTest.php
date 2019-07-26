@@ -4,6 +4,7 @@ namespace Tests\Unit;
 
 use App\Quote;
 use App\Author;
+use Illuminate\Support\Facades\DB;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 
@@ -25,11 +26,13 @@ class QuoteTest extends TestCase
     {
         factory(Quote::class)->create();
 
+        $this->assertEquals(1, Quote::count());
+
+        echo "\nUsing database: " . DB::connection()->getDatabaseName() . "\n";
+
         $quoteCount = Quote::count();
 
         echo "Quote Count is: {$quoteCount}\n";
-
-        $this->assertEquals(1, Quote::count());
     }
 
     /** @test */
@@ -37,14 +40,14 @@ class QuoteTest extends TestCase
     {
         $quote = create(Quote::class);
 
-        $quoteCount = Quote::count();
-
-        echo "Quote Count is: {$quoteCount}\n";
-
         create(Author::class, [], [], 2)->each(function ($author) use ($quote) {
             $author->quotes()->save($quote);
         });
 
         $this->assertCount(2, $quote->authors);
+
+        $quoteCount = Quote::count();
+
+        echo "\nQuote Count is: {$quoteCount}\n";
     }
 }
