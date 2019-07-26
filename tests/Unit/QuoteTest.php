@@ -20,15 +20,14 @@ class QuoteTest extends TestCase
         parent::setUp();
     }
 
-    public function tearDown()
-    {
-        parent::tearDown();
-    }
-
     /** @test */
     public function it_can_have_a_quote()
     {
         factory(Quote::class)->create();
+
+        $quoteCount = Quote::count();
+
+        echo "Quote Count is: {$quoteCount}\n";
 
         $this->assertEquals(1, Quote::count());
     }
@@ -37,6 +36,10 @@ class QuoteTest extends TestCase
     public function it_can_have_many_authors()
     {
         $quote = create(Quote::class);
+
+        $quoteCount = Quote::count();
+
+        echo "Quote Count is: {$quoteCount}\n";
 
         create(Author::class, [], [], 2)->each(function ($author) use ($quote) {
             $author->quotes()->save($quote);
