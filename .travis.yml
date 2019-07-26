@@ -21,6 +21,7 @@ install:
   - npm run production
 
 before_script:
+  - phpenv config-rm xdebug.ini
   - google-chrome-stable --headless --disable-gpu --remote-debugging-port=9222 http://localhost &
   - php artisan serve &
 
