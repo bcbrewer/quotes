@@ -4,17 +4,17 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Quote extends Model
+class Author extends Model
 {
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = ['quote'];
+    protected $fillable = ['name'];
 
-    public function authors()
+    public function quotes()
     {
-        return $this->belongsToMany(Author::class);
+        return $this->belongsToMany(Quote::class);
     }
 }

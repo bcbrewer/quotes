@@ -1,7 +1,8 @@
 <?php
 
-use App\Quote;
 use App\User;
+use App\Quote;
+use App\Author;
 use Faker\Generator as Faker;
 
 /*
@@ -30,5 +31,11 @@ $factory->define(User::class, function (Faker $faker) {
 $factory->define(Quote::class, function (Faker $faker) {
     return [
         'quote' => $faker->text
+    ];
+});
+
+$factory->define(Author::class, function (Faker $faker) {
+    return [
+        'name' => $faker->name
     ];
 });
