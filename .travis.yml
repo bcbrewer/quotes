@@ -27,5 +27,5 @@ before_script:
   - php artisan serve &
 
 script:
-#  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
+  - vendor/bin/phpunit --printer Codedungeon\\\PHPUnitPrettyResultPrinter\\\Printer
   - php artisan dusk
