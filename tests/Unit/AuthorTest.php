@@ -20,6 +20,11 @@ class AuthorTest extends TestCase
         parent::setUp();
     }
 
+    public function tearDown()
+    {
+        parent::tearDown();
+    }
+
     /** @test */
     public function it_can_have_many_quotes()
     {
