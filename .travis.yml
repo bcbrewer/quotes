@@ -5,9 +5,9 @@ language: php
 php:
   - 7.2
 
-#branches:
-#  only:
-#    - master
+branches:
+  only:
+    - master
 
 addons:
   chrome: stable
