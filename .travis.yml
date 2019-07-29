@@ -5,6 +5,10 @@ language: php
 php:
   - 7.2
 
+branches:
+  only:
+    - master
+
 addons:
   chrome: stable
 
