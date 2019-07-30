@@ -25,10 +25,10 @@ class AuthorTest extends TestCase
     {
         $author = create(Author::class);
 
-        create(Quote::class, [], [], 2)->each(function ($quote) use ($author) {
+        create(Quote::class, [], [], 3)->each(function ($quote) use ($author) {
             $quote->authors()->save($author);
         });
 
-        $this->assertCount(2, $author->quotes);
+        $this->assertCount(3, $author->quotes);
     }
 }
