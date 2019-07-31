@@ -33,10 +33,10 @@ class QuoteTest extends TestCase
     {
         $quote = create(Quote::class);
 
-        create(Author::class, [], [], 3)->each(function ($author) use ($quote) {
+        create(Author::class, [], [], 2)->each(function ($author) use ($quote) {
             $author->quotes()->save($quote);
         });
 
-        $this->assertCount(3, $quote->authors);
+        $this->assertCount(2, $quote->authors);
     }
 }
