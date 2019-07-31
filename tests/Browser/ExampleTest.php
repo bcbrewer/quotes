@@ -17,7 +17,7 @@ class ExampleTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Title 3');
+                    ->assertSee('Title 2');
         });
     }
 }
